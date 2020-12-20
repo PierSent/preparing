@@ -1,0 +1,72 @@
+<dialog>
+    <h5>EDIT PRODUCT</h5>
+    <form method="dialog">
+      <form class="px-4 py-3" [formGroup]="changeForm" [style.width]="'300px'">
+       
+        <div class="col-12 mt-4">
+            <label for="inputName">NAME</label>
+            <input
+                id="inputName"
+                class="form-control"
+                type="text"
+                placeholder="NAME"
+                formControlName="name"
+            />
+            <div class="error" *ngIf="((changeForm.get('name').touched) && (changeForm.get('name').invalid))">
+                <span class="badge badge-pill badge-danger">fill in field</span>
+            </div>
+        </div>
+        <div class="col-12 mt-4"> 
+            <label for="selectType">SELECT TYPE</label>
+            <select class="custom-select" id="selectType" formControlName="type">
+                <option [ngValue]="myProductType.water">WATER</option>
+                <option [ngValue]="myProductType.bread">BREAD</option>
+            </select>
+        </div>
+        <div class="col-12 mt-4">
+            <label for="inputSum">SUM</label>
+            <input
+                id="inputSum"
+                class="form-control"
+                type="text"
+                placeholder="SUM"
+                formControlName="sum"
+            />
+            <div class="error" *ngIf="((changeForm.get('sum').touched) && (changeForm.get('sum').invalid))">
+                <span class="badge badge-pill badge-danger">fill in field</span>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <label for="inputCost">COST</label>
+            <input
+                id="inputCost"
+                class="form-control"
+                type="text"
+                placeholder="COST"
+                formControlName="cost"
+            />
+            <div class="error" *ngIf="((changeForm.get('cost').touched) && (changeForm.get('cost').invalid))">
+                <span class="badge badge-pill badge-danger">fill in field</span>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <label for="inputDate">DATE</label>
+            <input
+                id="inputDate"
+                class="form-control"
+                type="date"
+                placeholder="DATE"
+                formControlName="date"
+            />
+            <div class="error" *ngIf="((changeForm.get('date').touched) && (changeForm.get('date').invalid))">
+                <span class="badge badge-pill badge-danger">fill in field</span>
+            </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+            <button type="submit" value="no" id="ok" [hidden]="changeForm.invalid" (click)="onEditProduct()">Изменить</button>
+        </div>
+    
+    
+      </form>
+    </form>
+</dialog>

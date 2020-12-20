@@ -1,0 +1,41 @@
+<div class="row" *ngIf="products.length > 0">
+    <div class="col-12">
+        <h5>{{  title  }}</h5>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" [style.width]="'50px'">#</th>
+                    <th scope="col" [style.width]="'30%'">NAME</th>
+                    <th scope="col" [style.width]="'30%'">SUM</th>
+                    <th scope="col" [style.width]="'30%'">COST (RUB)</th>
+                    <th scope="col" [style.width]="'150px'"></th>
+                    <th scope="col" [style.width]="'150px'"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <th scope="row">{{  product.id  }}</th>
+                    <td>{{  product.name  }}</td>
+                    <td>{{  product.sum  }}</td>
+                    <td>{{  product.cost  }}</td>
+                    <td>
+                        <button
+                            class="btn btn-outline-danger btn-sm"
+                            (click)="onDeleteProduct(product.id)"
+                        >
+                        DELETE
+                        </button>
+                    </td>
+                    <td>
+                        <button
+                            (click)="onChangeProduct(product)"
+                            class="btn btn-outline-info btn-sm"
+                        >
+                            CHANGE
+                        </button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

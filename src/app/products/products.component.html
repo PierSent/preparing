@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-addform-products
+            (addProduct)="onAddProduct($event)"
+            ></app-addform-products>
+            <app-table-products
+            [title]="'WATER'"
+            [products]="getByType(MyProductType.water)"
+            (deleteProduct)="onDeleteById($event)"
+            (changeProduct)="onChangeProduct($event)"
+            ></app-table-products>
+            <app-table-products
+            [title]="'BREAD'"
+            [products]="getByType(MyProductType.bread)"
+            (deleteProduct)="onDeleteById($event)"
+            (changeProduct)="onChangeProduct($event)"
+            ></app-table-products>
+            <app-editform-products *ngIf="showForm == true"
+                [changingProduct]="changingProduct"
+                (editProduct)="onEditProduct($event)"
+            >
+            </app-editform-products>
+        </div>
+    </div>
+</div>
